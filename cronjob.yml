@@ -1,0 +1,14 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: status-checker
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: status-checker-app
+              image: 778008423485.dkr.ecr.us-west-1.amazonaws.com/status-checker:latest
+          restartPolicy: OnFailure

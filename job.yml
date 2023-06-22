@@ -1,0 +1,11 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: status-checker-app
+spec:
+  template:
+    spec:
+      containers:
+        - name: status-checker-app
+          image: 778008423485.dkr.ecr.us-west-1.amazonaws.com/status-checker:latest
+      restartPolicy: OnFailure
